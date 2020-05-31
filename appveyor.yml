@@ -1,7 +1,18 @@
 image: Visual Studio 2019
 
 init:
-  - ps: $env:PSModulePath += ";$(pwd)"
-  - ps: Import-Module -Name $(Resolve-Path InvokeCI)
+  - ps: >-
+    echo '
+    function Invoke-CICommand
+    {
+        if ($env:CONFIGURATION -eq "WSL") {
+            wsl $args[0] $args[1..$($args.Count - 1)];
+        } else {
+            . $args[0] $args[1..$($args.Count - 1)];
+        }
+    }' > InvokeCI.psm1
+  - ps: Import-Module InvokeCI.psm1
+  - ps: Remove-Item InvokeCI.psm1
+    
 install:
   - ps: Invoke-CI-Command echo "hello world"
