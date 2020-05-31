@@ -12,7 +12,7 @@ init:
               . $args[0] $args[1..$($args.Count - 1)];
           }
       }' > InvokeCI/InvokeCI.psm1
-  - ps: Import-Module InvokeCI
+  - ps: Import-Module ./InvokeCI/InvokeCI.psm1
   - ps: Remove-Item ./InvokeCI/InvokeCI.psm1
     
 install:
