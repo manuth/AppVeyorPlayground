@@ -16,4 +16,4 @@ init:
   - ps: rm -r ./InvokeCI
     
 install:
-  - ps: Invoke-CI-Command echo "hello world"
+  - ps: Invoke-CICommand echo "hello world"
