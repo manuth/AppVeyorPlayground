@@ -1,4 +1,5 @@
 init:
+  - ps: Set-ExecutionPolicy -ExecutionPolicy Unrestricted
   - ps: Import-Module ./InvokeCI.psm1
 install:
   - ps: Invoke-CI-Command echo "hello world"
