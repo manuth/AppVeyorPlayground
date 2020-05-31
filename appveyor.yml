@@ -4,8 +4,8 @@ configuration:
 
 image: Visual Studio 2019
 
-init:
-  - echo "init all"
+custom_script:
+  - echo "custom_script"
 
 for:
 -
