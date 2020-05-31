@@ -1,19 +1,22 @@
+configuration:
+  - Native
+  - WSL
+
 image: Visual Studio 2019
 
 init:
-  - ps: mkdir InvokeCI
-  - ps: >-
-      echo '
-      function Invoke-CICommand
-      {
-          if ($env:CONFIGURATION -eq "WSL") {
-              wsl $args[0] $args[1..$($args.Count - 1)];
-          } else {
-              . $args[0] $args[1..$($args.Count - 1)];
-          }
-      }' > InvokeCI/InvokeCI.psm1
-  - ps: Import-Module ./InvokeCI/InvokeCI.psm1
-  - ps: rm -r ./InvokeCI
-    
-install:
-  - ps: Invoke-CICommand echo "hello world"
+  - echo "init all"
+
+for:
+-
+  matrix:
+    only:
+      - configuration: Native
+  init:
+    - echo "init native"
+-
+  matrix:
+    only:
+      - configuration: WSL
+  init:
+    - echo "init wsl"
