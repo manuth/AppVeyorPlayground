@@ -13,7 +13,7 @@ init:
           }
       }' > InvokeCI/InvokeCI.psm1
   - ps: Import-Module InvokeCI
-  - ps: Remove-Item InvokeCI.psm1
+  - ps: Remove-Item ./InvokeCI/InvokeCI.psm1
     
 install:
   - ps: Invoke-CI-Command echo "hello world"
