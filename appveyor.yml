@@ -10,8 +10,8 @@ init:
           } else {
               . $args[0] $args[1..$($args.Count - 1)];
           }
-      }' > InvokeCI.psm1
-  - ps: cat InvokeCI.psm1
+      }' > InvokeCI/InvokeCI.psm1
+  - ps: Import-Module InvokeCI
   - ps: Remove-Item InvokeCI.psm1
     
 install:
