@@ -1,3 +1,5 @@
+image: Visual Studio 2019
+
 init:
   - ps: Set-ExecutionPolicy -ExecutionPolicy Unrestricted
   - ps: Import-Module ./InvokeCI.psm1
