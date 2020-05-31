@@ -2,15 +2,15 @@ image: Visual Studio 2019
 
 init:
   - ps: >-
-    echo '
-    function Invoke-CICommand
-    {
-        if ($env:CONFIGURATION -eq "WSL") {
-            wsl $args[0] $args[1..$($args.Count - 1)];
-        } else {
-            . $args[0] $args[1..$($args.Count - 1)];
-        }
-    }' > InvokeCI.psm1
+      echo '
+      function Invoke-CICommand
+      {
+          if ($env:CONFIGURATION -eq "WSL") {
+              wsl $args[0] $args[1..$($args.Count - 1)];
+          } else {
+              . $args[0] $args[1..$($args.Count - 1)];
+          }
+      }' > InvokeCI.psm1
   - ps: Import-Module InvokeCI.psm1
   - ps: Remove-Item InvokeCI.psm1
     
