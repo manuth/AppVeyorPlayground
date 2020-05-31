@@ -1,6 +1,6 @@
 image: Visual Studio 2019
 
 init:
-  - ps: Import-Module ./InvokeCI.ps1
+  - ps: Import-Module -Name ./InvokeCI
 install:
   - ps: Invoke-CI-Command echo "hello world"
