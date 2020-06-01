@@ -1,22 +1,2 @@
-configuration:
-  - Native
-  - WSL
-
-image: Visual Studio 2019
-
-custom_script:
-  - echo "custom_script"
-
-for:
--
-  matrix:
-    only:
-      - configuration: Native
-  init:
-    - echo "init native"
--
-  matrix:
-    only:
-      - configuration: WSL
-  init:
-    - echo "init wsl"
+build_script:
+  - FOR %G IN (a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z) DO (echo %G)
