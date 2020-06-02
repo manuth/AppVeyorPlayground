@@ -1,4 +1,4 @@
 environment:
-  - test: 1
- init:
-   - echo %test%
+  test: 1
+init:
+  - echo %test%
